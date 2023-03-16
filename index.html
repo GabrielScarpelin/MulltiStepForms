@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="css/styles.css">k
+  <link rel="stylesheet" href="css/styles.css">
   <title>Frontend Mentor | Multi-step form</title>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
@@ -17,74 +19,127 @@
 <body>
   <div class="container">
     <div class="sidebar">
-      <div class="group">
-        <p class="stepNumber">
-          1
-        </p>
-        <div class="desktop stepInfo">
-          <p>Step 1</p>
-          <h4>Your info</h4>
+      <div class="stepsContainer">
+        <div class="group">
+          <div class="stepNumber active">
+            <p>1</p>
+          </div>
+          <div class="desktop stepInfo">
+            <p>Step 1</p>
+            <h4>Your info</h4>
+          </div>
+        </div>
+        <div class="group">
+          <div class="stepNumber">
+            <p>2</p>
+          </div>
+          
+          <div class="desktop stepInfo">
+            <p>Step 2</p>
+            <h4>Select plan</h4>
+          </div>
+        </div>
+        <div class="group">
+          <div class="stepNumber">
+            <p>3</p>
+          </div>
+          <div class="desktop stepInfo">
+            <p>Step 3</p>
+            <h4>Add-ons</h4>
+          </div>
+        </div>
+        <div class="group">
+          <div class="stepNumber">
+            <p>4</p>
+          </div>
+          <div class="desktop stepInfo">
+            <p>Step 4</p>
+            <h4>Summary</h4>
+          </div>
         </div>
       </div>
-      <div class="group">
-        <p class="stepNumber">
-          2
-        </p>
-        <div class="desktop stepInfo">
-          <p>Step 2</p>
-          <h4>Select plan</h4>
-        </div>
-      </div>
-      <div class="group">
-        <p class="stepNumber">
-          3
-        </p>
-        <div class="desktop stepInfo">
-          <p>Step 3</p>
-          <h4>Add-ons</h4>
-        </div>
-      </div>
-      <div class="group">
-        <p class="stepNumber">
-          4
-        </p>
-        <div class="desktop stepInfo">
-          <p>Step 4</p>
-          <h4>Summary</h4>
-        </div>
-      </div>
+      
     </div>
     <!-- Sidebar end -->
-    <form action="">
     <!-- Step 1 start -->
-    <div class="step1">
+    <div class="stepPage" id="step1" style="display: none;">
       <div class="header">
         <h1>Personal info</h1>
         <p>Please provide your name, email address, and phone number.</p>
       </div>
       <div class="inputs">
-        <label for="nomeUser">Name</label>
-        <input type="text" name="nomeUser" id="" placeholder="e.g. Stephen King" required>
-        <label for="emailUser">Email address</label>
-        <input type="email" name="emailUser" id="" placeholder="e.g. stephenking@lorem.com" required>
-        <label for="phoneUser">Phone number</label>
-        <input type="tel" name="phoneUser" id="" placeholder="e.g. +1 234 567 890" required>
+        <div class="containerInput">
+          <label for="nomeUser">Name</label>
+          <input type="text" name="nomeUser" id="" placeholder="e.g. Stephen King" class="inputTypeText" onchange="removerErroColor(0)" required>
+        </div>
+        <div class="containerInput">
+          <label for="emailUser">Email Address</label>
+          <input type="email" name="emailUser" id="" placeholder="e.g. stephenking@lorem.com" class="inputTypeText" onchange="removerErroColor(1)" required>
+        </div>
+        <div class="containerInput">
+          <label for="phoneUser">Phone Number</label>
+          <input type="tel" name="phoneUser" id="" placeholder="e.g. +1 234 567 890" class="inputTypeText" onchange="removerErroColor(2)" required>
+        </div>
       </div>
     </div>  
+    
     <!-- Step 1 end -->
-  
+    <!-- Step 2 start  -->
+    <div class="stepPage" id="step2" >
+      <div class="header">
+        <h1>Select your plan</h1>
+        <p>You have the option of monthly or yearly billing.</p>
+      </div>
+      <div class="inputs">
+        <input type="radio" name="planSelecet" id="arcade" style="display: none;">
+        <label for="arcade" class="labelSelectPlanRadio">
+          <img src="assets/images/icon-arcade.svg" alt="">
+          <h5>Arcade</h5>
+          <p>$9/mo</p>
+        </label>
+        <input type="radio" name="planSelecet" id="advanced" style="display: none;">
+        <label for="advanced" class="labelSelectPlanRadio">
+          <img src="assets/images/icon-advanced.svg" alt="">
+          <h5>Advanced</h5>
+          <p>$12/mo</p>
+        </label>
+        <input type="radio" name="planSelecet" id="pro" style="display: none;">
+        <label for="pro" class="labelSelectPlanRadio">
+          <img src="assets/images/icon-pro.svg" alt="">
+          <h5>Pro</h5>
+          <p>$15/mo</p>
+        </label>
+      </div>
+      <div class="changePlanTypeContainer">
+        <input type="radio" name="changePlan" id="monthly" style="display: none;" checked>
+        <input type="radio" name="changePlan" id="yearly" style="display: none;">
+        <p>Monthly</p>
+        <label for="changePlan" onclick="changePlan()">
+          <div class="circle"></div>
+        </label>
+        <p>Yearly</p>
+      </div>
+    </div> 
+    <!-- Step 2 start  -->
+
+
+
+    <div class="buttons">
+      <button id="goBack" class="active" onclick="voltar()">Go Back</button>
+      <button id="next" onclick="proximaPagina()">Next Step</button>
+    </div>
   </div>
+
   <!-- Sidebar start -->
   
 
 
   <!--  
-  Step 2 start
+  
   <div class="step2">
     
   </div>
-  Select your plan
-  You have the option of monthly or yearly billing.
+  
 
   Arcade
   $9/mo
@@ -149,9 +204,12 @@
 
   Step 5 end
   -->
+  <!--
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div>-->
 </body>
+<script src="js/script.js"></script>
+
 </html>
