@@ -71,6 +71,8 @@ function proximaPagina(){
         document.getElementById(`step${paginaAtual + 1}`).style.display = 'block'
         document.getElementsByClassName('stepNumber').item(paginaAtual - 1).classList.remove('active')
         document.getElementsByClassName('stepNumber').item(paginaAtual).classList.add('active')
+        const nextOrConfirmButton = document.getElementById('next')
+        nextOrConfirmButton.innerText = "Confirm"
         paginaAtual++
     }
 }
