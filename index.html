@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="css/styles.css">
   <title>Frontend Mentor | Multi-step form</title>
@@ -62,7 +61,7 @@
     </div>
     <!-- Sidebar end -->
     <!-- Step 1 start -->
-    <div class="stepPage" id="step1" style="display: none;">
+    <div class="stepPage" id="step1">
       <div class="header">
         <h1>Personal info</h1>
         <p>Please provide your name, email address, and phone number.</p>
@@ -85,29 +84,29 @@
     
     <!-- Step 1 end -->
     <!-- Step 2 start  -->
-    <div class="stepPage" id="step2" >
+    <div class="stepPage" id="step2" style="display: none;">
       <div class="header">
         <h1>Select your plan</h1>
         <p>You have the option of monthly or yearly billing.</p>
       </div>
       <div class="inputs">
-        <input type="radio" name="planSelecet" id="arcade" style="display: none;">
+        <input type="radio" name="planSelecet" id="arcade" style="display: none;" checked>
         <label for="arcade" class="labelSelectPlanRadio">
           <img src="assets/images/icon-arcade.svg" alt="">
           <h5>Arcade</h5>
-          <p>$9/mo</p>
+          <p class="price">$9/mo</p>
         </label>
         <input type="radio" name="planSelecet" id="advanced" style="display: none;">
         <label for="advanced" class="labelSelectPlanRadio">
           <img src="assets/images/icon-advanced.svg" alt="">
           <h5>Advanced</h5>
-          <p>$12/mo</p>
+          <p class="price">$12/mo</p>
         </label>
         <input type="radio" name="planSelecet" id="pro" style="display: none;">
         <label for="pro" class="labelSelectPlanRadio">
           <img src="assets/images/icon-pro.svg" alt="">
           <h5>Pro</h5>
-          <p>$15/mo</p>
+          <p class="price">$15/mo</p>
         </label>
       </div>
       <div class="changePlanTypeContainer">
@@ -120,12 +119,89 @@
         <p>Yearly</p>
       </div>
     </div> 
-    <!-- Step 2 start  -->
+    <!-- Step 2 end  -->
+    
+    <!-- Step 3 start  -->
+    <div class="stepPage" id="step3" style="display: none;">
+      <div class="header">
+        <h1>Pick add-ons</h1>
+        <p>Add-ons help enhance your gaming experience.</p>
+      </div>
+      <div class="inputs">
+        <div>
+          <input type="checkbox" name="extraPlansSelect" id="onlineServiceCheck" style="display: none;">
+          <label for="onlineServiceCheck" class="labelAddonsCheck"> 
+          
+            <span class="customCheckBox"></span>
+            <div class="infosExtraPlans">
+              <h5>Online service</h5>
+              <p>Access to multiplayer games</p>
+            </div>
+            <h6 class="priceAddons">+$1/mo</h6>
+          </label>
+        </div>
+        <div>
+          <input type="checkbox" name="extraPlansSelect" id="LargerStorageCheck" style="display: none;">
+          <label for="LargerStorageCheck" class="labelAddonsCheck">
+          
+          
+            <span class="customCheckBox"></span>
+            <div class="infosExtraPlans">
+              <h5>Larger storage</h5>
+              <p>Extra 1TB of cloud save</p>
+            </div>
+            <h6 class="priceAddons">+$2/mo</h6>
+          </label>
+        </div>
+        <div>
+          <input type="checkbox" name="extraPlansSelect" id="customiseProfileCheck" style="display: none;">
+          <label for="customiseProfileCheck" class="labelAddonsCheck">
+            
+            <span class="customCheckBox"></span>
+            <div class="infosExtraPlans">
+              <h5>Customizable Profile</h5>
+              <p>Custom theme on your profile</p>
+            </div>
+            <h6 class="priceAddons">+$2/mo</h6>
+            
+          </label>
+        </div>
+        
+      </div>
+    </div> 
+    <!-- Step 3 end  -->
 
+    <!-- Step 4 start  -->
+    <div class="stepPage" id="step4" style="display: none;">
+      <div class="header">
+        <h1>Finishing up</h1>
+        <p>Double-check everything looks OK before confirming.</p>
+      </div>
+      <div class="inputs">
+        <div class="resumeOrder">
+          <div class="planSelected">
+            <div>
+              <h3 id="planTextSelected">Arcade (Monthly)</h3>
+              <button>Change</button>
+            </div>
+            <h3>$9/mo</h3>
+          </div>
+          <span></span>
+          <div class="resume">
+            <div class="lineAddonsSelected">
+              <p>Online Storage</p>
+              <h6>+$1/mo</h6>
+            </div>
+          </div>
+        </div>
+        <div class="finalPrice">
 
-
+        </div>
+      </div>
+    </div> 
+    <!-- Step 4 end  -->
     <div class="buttons">
-      <button id="goBack" class="active" onclick="voltar()">Go Back</button>
+      <button id="goBack" onclick="voltarPage()" style="visibility: hidden;">Go Back</button>
       <button id="next" onclick="proximaPagina()">Next Step</button>
     </div>
   </div>

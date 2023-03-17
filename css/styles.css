@@ -21,6 +21,8 @@ body{
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 10px 5px 5px rgba(119, 119, 119, 0.5);
+    width: 45%;
+    min-width: fit-content;
 }
 
 
@@ -184,6 +186,66 @@ body{
 }
 
 
+
+
+/* STEP 3 PAGE */
+
+.stepPage .inputs .labelAddonsCheck{
+    display: flex;
+    border: 1px solid hsl(231, 11%, 63%);
+    align-items: center;
+    padding: 1.0rem;
+    border-radius: .5rem;
+}
+
+input[type="checkbox"]:checked ~ .labelAddonsCheck{
+    border: 1px solid hsla(243, 100%, 62%, 1);
+    background-color: hsla(243, 100%, 62%, 0.2);
+}
+
+input[type="checkbox"]:checked ~ .labelAddonsCheck .customCheckBox{
+    background-color: hsla(243, 100%, 62%, 1);
+    border: 1px solid hsla(228, 100%, 84%, 0);
+}
+.customCheckBox::before{
+    content: "";
+    position: absolute;
+}
+input[type="checkbox"]:checked ~ .labelAddonsCheck .customCheckBox::before{
+    background-image: url("/assets/images/icon-checkmark.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+    width: 20px;
+    height: 20px;
+}
+
+.customCheckBox{
+    width: 20px;
+    height: 20px;
+    border: 1px solid hsl(231, 11%, 63%);
+    border-radius: .2rem;
+}
+.stepPage .inputs div .labelAddonsCheck .infosExtraPlans {
+    margin-left: 1.5rem;
+    flex-grow: 2;
+}
+.stepPage .inputs div .labelAddonsCheck .infosExtraPlans h5{
+    font-size: 1rem;
+    color: hsl(213, 96%, 18%);
+}
+.stepPage .inputs div .labelAddonsCheck .infosExtraPlans p{
+    font-size: .9rem;
+    color: hsl(231, 11%, 63%);
+    font-weight: 400;
+    margin-top: .4rem;
+}
+.stepPage .inputs div .labelAddonsCheck h6{
+    font-size: .9rem;
+    color: hsla(243, 100%, 62%, 1);
+    font-weight: 400;
+}
+
 /* BUTTON CSS */
 .container .buttons{
     display: flex;
@@ -208,7 +270,6 @@ body{
     border: none;
     font-size: 1rem;
     text-decoration: underline;
-    visibility: hidden;
 }
 .container .buttons button:hover{
     cursor: pointer;
